@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "569614255131",
+    "project_id": "test-firebase-spinup",
+    "storage_bucket": "test-firebase-spinup.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:569614255131:android:3b3f17ba61af6f6876a4be",
+        "android_client_info": {
+          "package_name": "com.example.promptdiary"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "569614255131-4ddjbvtijqb0m1gflap539ega32nk9m9.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBXUSppUR8mt3An7fPYmemapFyw7pB37yw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "569614255131-4ddjbvtijqb0m1gflap539ega32nk9m9.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

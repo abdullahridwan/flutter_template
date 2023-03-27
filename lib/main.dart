@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:promptdiary/Helpers/screen_router.dart';
 import 'package:promptdiary/constants.dart';
-import 'package:promptdiary/login.dart';
-import 'package:promptdiary/onboarding_screen.dart';
-import 'package:promptdiary/signup.dart';
+import 'package:promptdiary/screens/home.dart';
+import 'package:promptdiary/screens/login.dart';
+import 'package:promptdiary/screens/onboarding_screen.dart';
+import 'package:promptdiary/screens/signup.dart';
 
 void main() {
   runApp(const MyApp());
@@ -21,7 +23,7 @@ class MyApp extends StatelessWidget {
       ),
       initialRoute: '/onboarding',
       routes: {
-        '/home': (context) => Scaffold(),
+        '/home': (context) => ScreenRouter(),
         '/onboarding': (context) => OnboardingScreen(),
         '/login': (context) => Login(),
         '/signup': (context) => Signup(),

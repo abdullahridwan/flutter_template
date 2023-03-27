@@ -2,7 +2,7 @@ import 'dart:convert';
 
 import 'package:flutter/material.dart';
 import 'package:ms_undraw/ms_undraw.dart';
-import 'package:promptdiary/onboarding_screen.dart';
+import 'package:promptdiary/screens/onboarding_screen.dart';
 
 // Determines the onboarding screen information
 final List<Onboard> demo_data = [
@@ -24,5 +24,7 @@ final List<Onboard> demo_data = [
         "Our goal is to put all the amazing halal places in one place. \nFind and explore neighborhood stores around you! \n Let's get started!",
   ),
 ];
+
+//Step 2: Add any tabs or pages to the screen router
 
 double kBorderRadius = 4;

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:ms_undraw/ms_undraw.dart';
 import 'package:promptdiary/constants.dart';
-import 'package:promptdiary/onboarding_content.dart';
+import 'package:promptdiary/components/onboarding_content.dart';
 
 class OnboardingScreen extends StatefulWidget {
   const OnboardingScreen({Key? key}) : super(key: key);

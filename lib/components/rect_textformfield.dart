@@ -7,20 +7,24 @@ class RectTextFormField extends StatelessWidget {
     required String labelTextField,
     required String? Function(String?)? validator,
     required bool isObscured,
+    required TextEditingController? controller,
   })  : _labelTextField = labelTextField,
         _validator = validator,
         _isObscured = isObscured,
+        _passwordController = controller,
         super(key: key);
 
   final String _labelTextField;
   final String? Function(String?)? _validator;
   final bool _isObscured;
+  final TextEditingController? _passwordController;
 
   @override
   Widget build(BuildContext context) {
     return Padding(
       padding: const EdgeInsets.symmetric(vertical: 8.0),
       child: TextFormField(
+        controller: _passwordController,
         obscureText: _isObscured,
         decoration: InputDecoration(
           labelText: _labelTextField,
