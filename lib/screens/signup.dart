@@ -1,5 +1,6 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:firebase_core/firebase_core.dart';
 
 import 'package:flutter/material.dart';
 import 'package:ms_undraw/ms_undraw.dart';
@@ -26,9 +27,6 @@ class _SignupState extends State<Signup> {
   handleSubmit() {
     if (_formKeySignup.currentState!.validate()) {
       signUpUser(context);
-      ScaffoldMessenger.of(context).showSnackBar(
-        const SnackBar(content: Text('Submitted!')),
-      );
     }
   }
 
@@ -39,20 +37,24 @@ class _SignupState extends State<Signup> {
       String fnText = _fn.text.trim();
       String lnText = _ln.text.trim();
 
-      // Create user in firebase
-      print("Creating user....");
       await FirebaseAuth.instance.createUserWithEmailAndPassword(
           email: emailText, password: passwordText);
-      print("Created user...");
-
-      //add user details to firebase
-      print(FirebaseAuth.instance.userChanges());
-      addUserDetails(emailText, passwordText, fnText, lnText);
-      signInUser(context);
+      ScaffoldMessenger.of(context).showSnackBar(
+        const SnackBar(
+          content: Text('Signing you up...'),
+          duration: const Duration(seconds: 1),
+        ),
+      );
+      await addUserDetails(emailText, passwordText, fnText, lnText);
+      FirebaseAuth.instance.currentUser!.reload();
+      var user = FirebaseAuth.instance.currentUser!;
+      if (user != null) {
+        //not signed in
+        Navigator.pushReplacementNamed(context, "/auth");
+      }
     } catch (e) {
       ScaffoldMessenger.of(context).showSnackBar(
         SnackBar(
-          //behavior: SnackBarBehavior.floating,
           content: Text(
               "Oops! There's something wrong with your email or password. Check again!"),
         ),
