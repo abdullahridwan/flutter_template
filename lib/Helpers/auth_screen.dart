@@ -10,17 +10,14 @@ class AuthScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: StreamBuilder<User?>(
+      body: StreamBuilder(
         stream: FirebaseAuth.instance.authStateChanges(),
         builder: (context, snapshot) {
-          //if logged in
           if (snapshot.hasData) {
             return ScreenRouter();
           } else {
             return Login();
           }
-
-          //if signUpPage.hasData ? HomeMainPage() : signUpPage();
         },
       ),
     );

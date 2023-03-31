@@ -46,13 +46,28 @@ class _SignupState extends State<Signup> {
       print("Created user...");
 
       //add user details to firebase
+      print(FirebaseAuth.instance.userChanges());
       addUserDetails(emailText, passwordText, fnText, lnText);
+      signInUser(context);
     } catch (e) {
-      print("Error");
-      print(e);
       ScaffoldMessenger.of(context).showSnackBar(
         SnackBar(
           //behavior: SnackBarBehavior.floating,
+          content: Text(
+              "Oops! There's something wrong with your email or password. Check again!"),
+        ),
+      );
+    }
+  }
+
+  Future signInUser(BuildContext context) async {
+    try {
+      await FirebaseAuth.instance.signInWithEmailAndPassword(
+          email: _emailController.text, password: _passwordController.text);
+    } catch (e) {
+      ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(
+          behavior: SnackBarBehavior.floating,
           content: Text(
               "Oops! There's something wrong with your email or password. Check again!"),
         ),
@@ -167,9 +182,6 @@ class _SignupState extends State<Signup> {
                           successColor: Colors.green.shade700,
                           controller: _passwordController,
                           minLength: 6,
-                          uppercaseCharCount: 2,
-                          numericCharCount: 3,
-                          specialCharCount: 1,
                           width: 400,
                           height: 150,
                           onSuccess: () {},

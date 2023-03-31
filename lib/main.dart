@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:promptdiary/Helpers/auth_screen.dart';
 import 'package:promptdiary/Helpers/screen_router.dart';
 import 'package:promptdiary/constants.dart';
 import 'package:promptdiary/screens/home.dart';
@@ -25,7 +26,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
-        primaryColor: Colors.orange[600],
+        primaryColor: Colors.green[600],
       ),
       initialRoute: '/onboarding',
       routes: {
@@ -33,6 +34,7 @@ class MyApp extends StatelessWidget {
         '/onboarding': (context) => OnboardingScreen(),
         '/login': (context) => Login(),
         '/signup': (context) => Signup(),
+        '/auth': (context) => AuthScreen(),
       },
     );
   }

@@ -69,7 +69,7 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
                       child: ElevatedButton(
                         onPressed: () {
                           if (_pageController.page == demo_data.length - 1) {
-                            Navigator.pushNamed(context, "/login");
+                            Navigator.pushNamed(context, "/auth");
                           } else {
                             _pageController.nextPage(
                                 duration: Duration(milliseconds: 300),
